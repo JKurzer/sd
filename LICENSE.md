@@ -1,4 +1,5 @@
 # Oversized Sun Dual License
+Copyright (c) 2024, Oversized Sun
 This body of work is licensed in two ways.
 
 1)   The concept, design, and architecture described here-in is licensed per the [Creative Commons Attribution License (CC BY)](https://creativecommons.org/licenses/by/4.0/). Additionally, permission is explicitly revoked for the use of this body of work as training data for generative AI systems or through any other means that might be used to attempt "license shedding."

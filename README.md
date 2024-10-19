@@ -9,8 +9,7 @@ Before we go any further: This work is proof of prior art by Oversized Sun and s
 Normally, I'd do a really in-depth write up that doesn't require a ton of knowledge. However, that's just not possible in a reasonable amount of time, so we're going to state our required knowledge upfront followed by our givens. We're assuming you're using the Artillery framework. You can do this in other frameworks, but it's easy to describe how it might work in artillery.  
 
 **Prior Knowledge:**
-1)  Artillery provides five concepts you will need to be familiar with to proceed. These are: Ticklites, Ticks, Shadow Now, Cadence, and Conserved Attributes.
-2)  You should probably understand how we use calculate versus apply, how barrage+jolt use deltas, and the anatomy of the artillery busy worker thread.
+Artillery provides five concepts you will need to be familiar with to proceed. These are: Ticklites, Ticks, Shadow Now, Cadence, and Conserved Attributes. You should probably understand how we use calculate versus apply, how barrage+jolt use deltas, and the anatomy of the artillery busy worker thread.
 
 **Axioms:**  
 Given a system that does not execute on the cadence of artillery...  

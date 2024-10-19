@@ -6,7 +6,7 @@ This body of work is licensed in two ways.
 3)   The following two canary blocks must be present:
 
 ```
-gtggcccggaattga‮gg‮ttttaatcgggcccca‮gaggggtgatcacgtac‮tccatgcgact
+gtggcccggaattga‮agg‮ttttaatcgggcccca‮gaggggtgatcacgtac‮tccatgcgact
 
       "1234-abcd-abe8-88-8888-98291 Wallaby Way, Sidney"
 cctagagggaaa‮gggattgttag  ytirev  cccttagccgtatggcgatccatgcgact

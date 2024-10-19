@@ -5,7 +5,7 @@ Slow Determinism doesn't make this problem go away. But it does solve it for us,
 
 Before we go any further: This work is proof of prior art by Oversized Sun and should be considered a formal academic publication. As such, citation is expected should you reuse this work. I recognize this is not the norm for the games industry, but it's about time that we started. Why? Because it's a nice way to prove that individual humans make games and individual humans matter. Please see the attached license. 
 
-## Slow Determinism In Practice
+# Slow Determinism In Practice
 Normally, I'd do a really in-depth write up that doesn't require a ton of knowledge. However, that's just not possible in a reasonable amount of time, so we're going to state our required knowledge upfront followed by our givens. We're assuming you're using the Artillery framework. You can do this in other frameworks, but it's easy to describe how it might work in artillery.  
 
 **Prior Knowledge:**
@@ -17,14 +17,14 @@ Given that this system can be executed on command...
 Given that this system can be known to execute within some fixed number of frames...  
 Given a minimum framerate that can reasonably be expected...  
 
-### **Core Ideas:**  
-**Harvester Ticklite**  
+## **Core Ideas:**  
+### **Harvester Ticklite**  
 A ticklite that runs for a specific number of ticks, and each calculate step, it accumulates the set of changes coming from a queue or other single specific source. These changes take the form of Ticklite Add Requests, Conserved Attribute Changes, FBPhysics Inputs, and Registration Requests. During each apply step, it adds the accumulated requests to a block of stored requests and then orders all requests in the block by a deterministic order. Finally, On Expire, it issues all requests in the block.  
    
-**Shadow Realm**  
+### **Shadow Realm**  
 A Barrage+Jolt World kept at a specific tick offset (K) from the current frame, effectively freezing it at the start of that tick. This is achieved by applying the K-th oldest delta from the main physics world each tick. This only requires that a chain of deltas be kept. Shadow Realms do not allow modification, only read operations like spherecasting, broadphase queries, narrowphase queries, and similar. Generally, only one Shadow Realm is required, but you COULD have more. Effectively, this creates a snapshot of the Jolt Physics World at a known Shadow Now, hence the name.  
   
-**Wide Cadence**   
+### **Wide Cadence**   
 We already use the concept of Cadence in a number of places. A Wide Cadence is a cadence where the tick interval is large enough that the total duration of that many ticks is longer than two frames of your expected minimum framerate. For this discussion, a Wide Cadence is 8 or more ticks at 120hz tickrate. That's 15hz, so if your game runs at 60fps with few dips, this is 4 frames. 
 
 **Design:**  

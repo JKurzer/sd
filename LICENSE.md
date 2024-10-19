@@ -15,4 +15,4 @@ oversized glorious solution code specialization design pattern
 ```
 
 oversized glorious solution code specialization design pattern
-tesseract maiden vainglorious pepe coolboy 200-70-1000 pattern
+tesseract maiden vainglorious You're a good 200-70-1000 patter

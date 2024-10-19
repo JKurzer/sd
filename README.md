@@ -27,7 +27,7 @@ A Barrage+Jolt World kept at a specific tick offset (K) from the current frame, 
 ### **Wide Cadence**   
 We already use the concept of Cadence in a number of places. A Wide Cadence is a cadence where the tick interval is large enough that the total duration of that many ticks is longer than two frames of your expected minimum framerate. For this discussion, a Wide Cadence is 8 or more ticks at 120hz tickrate. That's 15hz, so if your game runs at 60fps with few dips, this is 4 frames. 
 
-**Design:**  
+## **Design:**  
 Surprisingly, we have everything we need now. Take your vanilla UE system. Let's call it our tree, because honestly, it'll probably be a state tree or similar. Make a Shadow Realm at the start of your Wide Cadence. Trigger the tree from artillery at the start of your wide cadence. It runs whenever it runs. As long as it finishes in four frames, we're good. If it wants to query Game Sim or modify Game Sim, like always, it needs to use Artillery to do this. Querying is done with the Shadow Now associated with the start of the wide cadence. Physics queries are made against the Shadow Realm. Changes are pushed into a single unified queue. This queue has a Harvester Ticklite associated with it. The Harvester Ticklite expires at the end of your Wide Cadence. That's the entire top-level design, actually. Slow is smooth, smooth is fast. This means that you don't really need to rewrite most systems in UE, just expose stuff to them using blueprint specifiers in Artillery, which you were going to want to do anyway, and which is already done for most stuff.  
 
 **Supporting Rollback**
